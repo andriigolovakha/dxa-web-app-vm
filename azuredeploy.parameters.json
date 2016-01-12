@@ -29,23 +29,23 @@
     "configurationFunction": {
       "value": "ConfigureWebServer.ps1\\Main"
     },
-    "DatabaseServerName": {
-      "value": "GEN-UNIQUE"
-    },
-    "DatabaseServerLocation": {
-      "value": "westus"
-    },
-    "databaseServerAdminLogin": {
-      "value": "dbuser"
-    },
-    "databaseServerAdminLoginPassword": {
-      "value": "GEN-PASSWORD"
-    },
-    "databaseName": {
-      "value": "cawadb07"
-    },
     "modulesUrl": {
       "value": "https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-vm-dsc/ConfigureWebServer.ps1.zip"
+    },
+    "discoveryEndpoint": {
+      "value": "https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-vm-dsc/ConfigureWebServer.ps1.zip"
+    },
+    "isOAuthEnabled": {
+      "value": "true"
+    },
+    "oauthClientId": {
+      "value": "cduser"
+    },
+    "oauthClientSecret": {
+      "value": "Tr1dionUser"
+    },
+    "logsLocation": {
+      "value": "C:\home"
     }
   }
 }

@@ -79,57 +79,6 @@
         "description": "This is the link to the Web Deploy package to be deployed to the Virtual Machine. It is a github URL in this example."
       }
     },
-    "DatabaseServerName": {
-      "type": "string",
-      "metadata": {
-        "description": "This is database server name"
-      }
-    },
-    "DatabaseServerLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "This is database server location"
-      }
-    },
-    "databaseServerAdminLogin": {
-      "type": "string",
-      "metadata": {
-        "description": "This is database server administrator login name"
-      }
-    },
-    "databaseServerAdminLoginPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "This is database server administrator login password"
-      }
-    },
-    "databaseName": {
-      "type": "string",
-      "metadata": {
-        "description": "This is name of the database hosted in the database server"
-      }
-    },
-    "databaseCollation": {
-      "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS",
-      "metadata": {
-        "description": "This is database collation - rule for comparing the encodings in the database"
-      }
-    },
-    "databaseEdition": {
-      "type": "string",
-      "defaultValue": "Web",
-      "allowedValues": [
-        "Basic",
-        "Business",
-        "Premium",
-        "Standard",
-        "Web"
-      ],
-      "metadata": {
-        "description": "This is database edition"
-      }
-    },
     "modulesUrl": {
       "type": "string",
       "metadata": {
@@ -140,6 +89,36 @@
       "type": "string",
       "metadata": {
         "description": "This is the link to the Web Deploy package for the website that's going to be deployed to the Virtual Machine"
+      }
+    },
+	"discoveryEndpoint": {
+      "type": "string",
+      "metadata": {
+        "description": "discovery endpoint"
+      }
+    },
+	"isOAuthEnabled": {
+      "type": "string",
+      "metadata": {
+        "description": "is OAuth Enabled"
+      }
+    },
+	"oauthClientId": {
+      "type": "string",
+      "metadata": {
+        "description": "OAuth Client Id"
+      }
+    },
+	"oauthClientSecret": {
+      "type": "string",
+      "metadata": {
+        "description": "OAuth Client Secret"
+      }
+    },
+	"logsLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Logs Location"
       }
     }
   },
@@ -314,59 +293,14 @@
                 "WebDeployPackagePath": "[parameters('webdeploypkg')]",
                 "UserName": "[parameters('adminUserName')]",
                 "Password": "[parameters('adminPassword')]",
-                "DbServerName": "[parameters('DatabaseServerName')]",
-                "DbName": "[parameters('databaseName')]",
-                "DbUserName": "[parameters('databaseServerAdminLogin')]",
-                "DbPassword": "[parameters('databaseServerAdminLoginPassword')]"
+				"DiscoveryEndpoint": "[parameters('discoveryEndpoint')]",
+				"IsOAuthEnabled": "[parameters('isOAuthEnabled')]",
+				"OAuthClientId": "[parameters('oauthClientId')]",
+				"OAuthClientSecret": "[parameters('oauthClientSecret')]",
+				"LogsLocation": "[parameters('logsLocation')]",
               }
             },
             "protectedSettings": {}
-          }
-        }
-      ]
-    },
-    {
-      "name": "[parameters('DatabaseServerName')]",
-      "type": "Microsoft.Sql/servers",
-      "location": "[parameters('DatabaseServerLocation')]",
-      "apiVersion": "2014-04-01-preview",
-      "dependsOn": [],
-      "tags": {
-        "displayName": "[parameters('DatabaseServerName')]"
-      },
-      "properties": {
-        "administratorLogin": "[parameters('databaseServerAdminLogin')]",
-        "administratorLoginPassword": "[parameters('databaseServerAdminLoginPassword')]"
-      },
-      "resources": [
-        {
-          "name": "AllowAllWindowsAzureIps",
-          "type": "firewallrules",
-          "location": "[parameters('DatabaseServerLocation')]",
-          "apiVersion": "2014-04-01-preview",
-          "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('DatabaseServerName'))]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
-          }
-        },
-        {
-          "name": "[parameters('databaseName')]",
-          "type": "databases",
-          "location": "[parameters('DatabaseServerLocation')]",
-          "apiVersion": "2014-04-01-preview",
-          "dependsOn": [
-            "[parameters('DatabaseServerName')]"
-          ],
-          "tags": {
-            "displayName": "cawadb1"
-          },
-          "properties": {
-            "collation": "[parameters('databaseCollation')]",
-            "edition": "[parameters('databaseEdition')]",
-            "maxSizeBytes": "1073741824"
           }
         }
       ]
