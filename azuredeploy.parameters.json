@@ -3,25 +3,25 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {
-      "value": "2ad0e4fa7e73"
+      "value": "GET-UNIQUE"
     },
     "vmLocation": {
       "value": "West Europe"
     },
     "vmName": {
-      "value": "dxawebvm01"
+      "value": "GET-UNIQUE"
     },
     "adminUserName": {
-      "value": "DXAAndministrator"
+      "value": "GET-UNIQUE"
     },
     "dnsName": {
-      "value": "dxadns"
+      "value": "GET-UNIQUE"
     },
     "vmSize": {
       "value": "Standard_A0"
     },
     "adminPassword": {
-      "value": "L1ttleRagged"
+      "value": "GET-UNIQUE"
     },
     "webdeploypkg": {
       "value": "https://sdldxapreview.blob.core.windows.net/sdl-dxa-preview/DXA.zip"
