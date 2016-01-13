@@ -277,10 +277,7 @@ Configuration Main
 		$WebClient = New-Object -TypeName System.Net.WebClient
 		$Destination= "C:\WindowsAzure\DXA_Staging.zip" 
         $WebClient.DownloadFile($using:WebDeployPackagePath,$destination)
-		$Argument = '-verb:sync -source:package="' + "$Destination" + ' -dest:auto,ComputerName="localhost",'+"username=$using:UserName" +",password=$using:Password" + ' -setParam:name="DiscoveryEndpoint",value="' + "$using:DiscoveryEndpoint" + '"' + ' -setParam:name="isOAuthEnabled",value="' + "$using:isOAuthEnabled" + '"' + ' -setParam:name="OAuthClientId",value="' + "$using:OAuthClientId" + '"' + ' -setParam:name="OAuthClientSecret",value="'+"$using:OAuthClientSecret" + ' -setParam:name="CDLogs",value="'+ "$using:LogsLocation" + '\cd_client.log' + '"' + ' -setParam:name="DXALogs",value="' + "$using:LogsLocation" + '\site.log"'
-		
 		$Argument = '-verb:sync -source:package="' + "$Destination" + ' -dest:auto,ComputerName="localhost",'+"username=$using:UserName" +",password=$using:Password" + ' -setParam:name="DiscoveryEndpoint",value="' + "$using:DiscoveryEndpoint" + '"' + ' -setParam:name="isOAuthEnabled",value="' + "$using:isOAuthEnabled" + '"' + ' -setParam:name="OAuthClientId",value="' + "$using:OAuthClientId" + '"' + ' -setParam:name="OAuthClientSecret",value="'+"$using:OAuthClientSecret" + '"' + ' -setParam:name="CDLogs",value="'+ "$using:LogsLocation" + '\cd_client.log"' + ' -setParam:name="DXALogs",value="' + "$using:LogsLocation" + '\site.log"'
-		
 		$MSDeployPath = (Get-ChildItem "HKLM:\SOFTWARE\Microsoft\IIS Extensions\MSDeploy" | Select -Last 1).GetValue("InstallPath")
         Start-Process "$MSDeployPath\msdeploy.exe" $Argument -Verb runas
         }
