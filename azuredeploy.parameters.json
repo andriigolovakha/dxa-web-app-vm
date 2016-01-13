@@ -6,16 +6,16 @@
       "value": "GEN-UNIQUE"
     },
     "vmLocation": {
-      "value": "West US"
+      "value": "North Europe"
     },
     "vmName": {
       "value": "cawadscvm07"
     },
     "adminUserName": {
-      "value": "yourusername"
+      "value": "DXAAndministrator"
     },
     "dnsName": {
-      "value": "GEN-UNIQUE"
+      "value": "dxadns"
     },
     "vmSize": {
       "value": "Standard_A3"
@@ -45,7 +45,7 @@
       "value": "Tr1dionUser"
     },
     "logsLocation": {
-      "value": "C:\home"
+      "value": "C:\\home"
     }
   }
 }
