@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {
-      "value": "GEN-UNIQUE"
+      "value": "2ad0e4fa7e73"
     },
     "vmLocation": {
       "value": "West Europe"
@@ -18,10 +18,10 @@
       "value": "dxadns"
     },
     "vmSize": {
-      "value": "Standard_A3"
+      "value": "Standard_A0"
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "L1ttleRagged"
     },
     "webdeploypkg": {
       "value": "https://sdldxapreview.blob.core.windows.net/sdl-dxa-preview/DXA.zip"
@@ -30,7 +30,7 @@
       "value": "ConfigureWebServer.ps1\\Main"
     },
     "modulesUrl": {
-      "value": "https://raw.github.com/andriigolovakha/dxa-web-app-vm/blob/master/ConfigureWebServer.ps1.zip"
+      "value": "https://raw.github.com/andriigolovakha/dxa-web-app-vm/master/ConfigureWebServer.ps1.zip"
     },
     "discoveryEndpoint": {
       "value": "http://cd-cont-2f9765-dev-eu-west-1-blztestgrid.tridion.sdlproducts.com:8083/discovery.svc"
